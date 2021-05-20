@@ -1,14 +1,18 @@
 import {
-    Entity, Column, PrimaryGeneratedColumn, ManyToMany, 
+    Entity, Column, PrimaryGeneratedColumn, OneToMany, 
     BaseEntity, JoinTable
   } from 'typeorm';
   
-  // import {Planet} from "./Planet"
+  import {Favorites} from "./Favorites"
+
   @Entity()
   export class User extends BaseEntity{
     @PrimaryGeneratedColumn()
     id: number;
   
+    @Column({unique: true})
+    user_name: string;
+
     @Column()
     first_name: string;
   
@@ -18,11 +22,10 @@ import {
     @Column({unique: true})
     email: string;
   
-    @Column({unique: true})
+    @Column()
     password: string;
   
-    // @ManyToMany(() => Planet)
-    // @JoinTable()
-    // planets: Planet[];
+    @OneToMany(() => Favorites, favorites => favorites.id)
+    favorites: Favorites[];
     
   }

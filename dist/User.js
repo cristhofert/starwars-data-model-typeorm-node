@@ -57,7 +57,7 @@ var User = /** @class */ (function (_super) {
         __metadata("design:type", String)
     ], User.prototype, "password");
     __decorate([
-        typeorm_1.OneToMany(function () { return Favorites_1.Favorites; }, function (favorites) { return favorites.id; }),
+        typeorm_1.OneToMany(function () { return Favorites_1.Favorite; }, function (favorite) { return favorite.id; }),
         __metadata("design:type", Array)
     ], User.prototype, "favorites");
     User = __decorate([

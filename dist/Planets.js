@@ -24,61 +24,66 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 exports.__esModule = true;
-exports.Planets = void 0;
+exports.Planet = void 0;
 var typeorm_1 = require("typeorm");
+var Favorites_1 = require("./Favorites");
 // import {Planet} from "./Planet"
-var Planets = /** @class */ (function (_super) {
-    __extends(Planets, _super);
-    function Planets() {
+var Planet = /** @class */ (function (_super) {
+    __extends(Planet, _super);
+    function Planet() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     __decorate([
         typeorm_1.PrimaryGeneratedColumn(),
         __metadata("design:type", Number)
-    ], Planets.prototype, "id");
+    ], Planet.prototype, "id");
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], Planets.prototype, "nombre");
+    ], Planet.prototype, "name");
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], Planets.prototype, "diameter");
+    ], Planet.prototype, "diameter");
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], Planets.prototype, "rotation_period");
+    ], Planet.prototype, "rotation_period");
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], Planets.prototype, "orbital_period");
+    ], Planet.prototype, "orbital_period");
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], Planets.prototype, "gravity");
+    ], Planet.prototype, "gravity");
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], Planets.prototype, "population");
+    ], Planet.prototype, "population");
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], Planets.prototype, "climate");
+    ], Planet.prototype, "climate");
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], Planets.prototype, "terrain");
+    ], Planet.prototype, "terrain");
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], Planets.prototype, "surface_water");
+    ], Planet.prototype, "surface_water");
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], Planets.prototype, "url");
-    Planets = __decorate([
+    ], Planet.prototype, "url");
+    __decorate([
+        typeorm_1.OneToMany(function () { return Favorites_1.Favorite; }, function (favorite) { return favorite.id; }),
+        __metadata("design:type", Array)
+    ], Planet.prototype, "favorites");
+    Planet = __decorate([
         typeorm_1.Entity()
-    ], Planets);
-    return Planets;
+    ], Planet);
+    return Planet;
 }(typeorm_1.BaseEntity));
-exports.Planets = Planets;
+exports.Planet = Planet;

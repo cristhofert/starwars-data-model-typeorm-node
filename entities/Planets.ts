@@ -1,16 +1,17 @@
 import {
     Entity, Column, PrimaryGeneratedColumn, ManyToMany, 
-    BaseEntity, JoinTable
+    BaseEntity, JoinTable, ManyToOne, OneToMany
   } from 'typeorm';
+import { Favorite } from './Favorites';
   
   // import {Planet} from "./Planet"
   @Entity()
-  export class Planets extends BaseEntity{
+  export class Planet extends BaseEntity{
     @PrimaryGeneratedColumn()
     id: number;
   
     @Column()
-    nombre: string;
+    name: string;
 
     @Column()
     diameter: string;
@@ -38,5 +39,8 @@ import {
 
     @Column()
     url: string;
+
+    @OneToMany(() => Favorite, favorite => favorite.id)
+    favorites: Favorite[];
 
   }

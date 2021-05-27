@@ -1,26 +1,23 @@
 import {
-    Entity, Column, PrimaryGeneratedColumn, ManyToOne, OneToOne, JoinColumn,
-    BaseEntity, JoinTable
+    Entity, Column, PrimaryGeneratedColumn, ManyToOne, 
+    BaseEntity, JoinTable, OneToMany
 } from 'typeorm';
 
 import { User } from "./User"
-import { Planets } from "./Planets"
-import { Characters } from "./Characters"
+import { Planet } from "./Planets"
+import { Character } from "./Characters"
 @Entity()
-export class Favorites extends BaseEntity {
+export class Favorite extends BaseEntity {
     @PrimaryGeneratedColumn()
     id: number;
 
     @ManyToOne(() => User, user => user.id)
-    user_id: User;
+    user: User;
 
-    @OneToOne(() => Planets)
-    @JoinColumn()
-    planet_id: Planets;
+    @ManyToOne(() => Planet, planet => planet.id)
+    planet: Planet;
 
-    @OneToOne(() => Characters)
-    @JoinColumn()
-    character_id: Characters;
-
+    @ManyToOne(() => Character, character => character.id)
+    character: Character;
 
 }

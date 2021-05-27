@@ -3,7 +3,7 @@ import {
     BaseEntity, JoinTable
   } from 'typeorm';
   
-  import {Favorites} from "./Favorites"
+  import {Favorite} from "./Favorites"
 
   @Entity()
   export class User extends BaseEntity{
@@ -25,7 +25,7 @@ import {
     @Column()
     password: string;
   
-    @OneToMany(() => Favorites, favorites => favorites.id)
-    favorites: Favorites[];
+    @OneToMany(() => Favorite, favorite => favorite.id)
+    favorites: Favorite[];
     
   }

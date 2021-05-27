@@ -24,61 +24,66 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 exports.__esModule = true;
-exports.Characters = void 0;
+exports.Character = void 0;
 var typeorm_1 = require("typeorm");
+var Favorites_1 = require("./Favorites");
 // import {Planet} from "./Planet"
-var Characters = /** @class */ (function (_super) {
-    __extends(Characters, _super);
-    function Characters() {
+var Character = /** @class */ (function (_super) {
+    __extends(Character, _super);
+    function Character() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     __decorate([
         typeorm_1.PrimaryGeneratedColumn(),
         __metadata("design:type", Number)
-    ], Characters.prototype, "id");
+    ], Character.prototype, "id");
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], Characters.prototype, "height");
+    ], Character.prototype, "height");
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], Characters.prototype, "mass");
+    ], Character.prototype, "mass");
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], Characters.prototype, "hair_color");
+    ], Character.prototype, "hair_color");
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], Characters.prototype, "skin_color");
+    ], Character.prototype, "skin_color");
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], Characters.prototype, "eye_color");
+    ], Character.prototype, "eye_color");
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], Characters.prototype, "birth_year");
+    ], Character.prototype, "birth_year");
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], Characters.prototype, "gender");
+    ], Character.prototype, "gender");
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], Characters.prototype, "name");
+    ], Character.prototype, "name");
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], Characters.prototype, "homeworld");
+    ], Character.prototype, "homeworld");
     __decorate([
         typeorm_1.Column(),
         __metadata("design:type", String)
-    ], Characters.prototype, "url");
-    Characters = __decorate([
+    ], Character.prototype, "url");
+    __decorate([
+        typeorm_1.OneToMany(function () { return Favorites_1.Favorite; }, function (favorite) { return favorite.id; }),
+        __metadata("design:type", Array)
+    ], Character.prototype, "favorites");
+    Character = __decorate([
         typeorm_1.Entity()
-    ], Characters);
-    return Characters;
+    ], Character);
+    return Character;
 }(typeorm_1.BaseEntity));
-exports.Characters = Characters;
+exports.Character = Character;
